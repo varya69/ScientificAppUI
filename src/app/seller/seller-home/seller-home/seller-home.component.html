@@ -1,0 +1,46 @@
+<div class="product-list">
+    <h1>All product List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of productList">
+                <td>
+                    <div class="product-image">
+                        <img src="assets/{{item.image}}" alt="{{item.ProductName}}">
+                    </div>
+                </td>
+                <td >
+                    {{item.ProductName}}
+                </td>
+                <td >
+                    {{item.Price}}
+                </td>
+                <td >
+                    {{item.Category}}
+                </td>
+                <td >
+                    {{item.Description}}
+                </td>
+                <td>
+                    <button mat-icon-button  color="primary" ngbTooltip="Update" (click)="openUpdateProductDialog(item.id)"><mat-icon>update</mat-icon></button>
+                </td>
+                <td>
+                    <button mat-icon-button  color="warn" ngbTooltip="Delete" (click)="deleteModal(item.id)"><mat-icon>delete</mat-icon></button>
+                </td>
+                <!-- <td><img src="https://media/0d3344aa52c51908d95b7cc491d2b5a7_mEEExoY.jpg" alt="img" width="100" height="100"></td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

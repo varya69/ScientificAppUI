@@ -1,0 +1,23 @@
+<div class="product">
+  <h1>Trendy Products</h1>
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let product of productList">
+      <div class="product-card">
+        <div class="product-item">
+          <img src="assets/{{product.image}}"
+            alt="product-demo-img">
+        </div>
+        <div class="product-details">
+          <h6 class="product-head">{{product.ProductName}}</h6>
+          <div class="product-price">
+            <h6>Price: {{product.Price}}</h6>
+          </div>
+        </div>
+        <div class="product-footer">
+          <a href="" class="product-link">View Details</a>
+          <button class="btn btn-primary">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

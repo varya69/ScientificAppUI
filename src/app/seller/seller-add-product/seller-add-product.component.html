@@ -1,0 +1,55 @@
+<div class="seller-auth">
+    <div class="signUp">
+        <main class="form-signin w-100 m-auto">
+            <form #addProduct="ngForm" class="common-form" (ngSubmit)="onSubmit(addProduct)">
+                <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+                <h1 class="h3 mb-4 mt fw-normal">Add Product</h1>
+                
+                <div class="form-floating mt-3">
+                    <input type="name" class="form-control" id="floatingInput" placeholder="Enter Product Name"
+                        name="ProductName" ngModel>
+                    <label for="floatingInput">Product Name</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <textarea type="email" class="form-control" id="floatingInput" placeholder="Enter description"
+                        name="Description" ngModel></textarea>
+                    <label for="floatingInput">Description</label>
+
+                </div>
+                <div class="form-floating mt-3">
+                    <input class="form-control" id="floatingInput" placeholder="Category" name="Category" ngModel>
+                    <label for="floatingInput">Category</label>
+                </div>
+
+                <!-- <div class="form-floating mt-3">
+                    <input class="form-control" id="floatingInput" placeholder="Image" name="img" ngModel>
+                    <label for="floatingInput">Img URL</label>
+                </div> -->
+
+                <div class="form-floating mt-3">
+                    <form >
+                        <img src="{{url}}" height="100"><br>
+                        <input class="form-control" type="file" (change)="onFileSelected($event)">
+                        <label for="floatingInput">Image</label>
+                        <!-- <button class="btn btn-lg btn-primary" type="submit" [disabled]="!selectedFile">Upload</button> -->
+                      </form>
+                </div>
+
+                <div class="form-floating mt-3">
+                    <input class="form-control" id="floatingInput" placeholder="Enter the Price" name="Price" ngModel>
+                    <label for="floatingInput">Price</label>
+                </div>
+                <!-- <div class="form-floating mt-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+              ngModel>
+            <label for="floatingPassword">Password</label>
+          </div> -->
+
+                <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!selectedFile">Add Product</button>
+            </form>
+        </main>
+
+    </div>
+
+
+</div>

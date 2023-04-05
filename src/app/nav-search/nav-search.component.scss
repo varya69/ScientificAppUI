@@ -1,0 +1,84 @@
+// .container-fluid{
+//     display: flex;
+//     justify-content: space-between;
+// }
+.search{
+    padding-left: 110px;
+    width: 600px;
+}
+// .home-button {
+//     background-color: #52779a; // Set the background color to a blue shade
+//     border-radius: 50%; // Make the button round
+//     color: #fff; // Set the icon color to white
+//     height: 50px; // Set the height of the button
+//     width: 50px; // Set the width of the button
+//     margin-right: 10px; // Add some spacing to the right of the button
+//     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25); // Add a subtle box-shadow to the button
+//   }
+
+/* Style the navigation bar container */
+.navbar {
+    background-color: #3399c4; /* Set the background color */
+    // overflow: hidden;
+    // background-image: url('your-image-url.jpg');
+    background-size: cover; /* Scale the image to cover the entire container */
+  }
+  
+  /* Style the links inside the navigation bar */
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+  }
+  
+  /* Change the color of links on hover */
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+.suggested-results{
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+  z-index: 10px;
+  background-color: #fff;
+  width: 441px;
+  top: 50px;
+  border: 1px solid #ddd;
+  list-style: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: auto;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggested-results li {
+  // border: 1px solid #3399c4;
+  padding: 1px;
+}
+
+.suggested-results a{
+  cursor: pointer;
+  color: #3399c4;
+}
+
+.suggested-results::-webkit-scrollbar {
+  width: 10px; /* set the width of the scrollbar */
+}
+
+.suggested-results::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* set the background color of the scrollbar track */
+}
+
+.suggested-results::-webkit-scrollbar-thumb {
+  background-color: #888; /* set the color of the scrollbar thumb */
+  border-radius: 5px; /* add a border radius to the scrollbar thumb */
+}
+
+  

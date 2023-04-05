@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" routerLink="/">Home</a> -->
+    <!-- <button mat-button class="navbar-brand" routerLink="/"><mat-icon>home</mat-icon></button> -->
+    <button mat-fab color="primary" class="home-button" ngbTooltip="Home" routerLink="/">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <form class="search d-flex " role="search">
+        <input class="form-control me-2" #searchInput type="search" (keyup)="search($event)" (blur)="hideSearch()" placeholder="Search..." aria-label="Search">
+        <ul class="suggested-results" *ngIf="searchResults">
+          <li *ngFor="let item of searchResults">
+            <a>{{ item.ProductName }}</a>
+            <!-- <a class="list-link" (click)="selectResult(item)">{{ item.ProductName }}</a> -->
+          </li>
+        </ul>
+        <button mat-icon-button class="btn btn-outline-success" (click)="submitSearch(searchInput.value)" ngbTooltip="search" type="submit"><mat-icon>search</mat-icon></button>
+      </form>
+      
+      <!-- <div [ngSwitch]="menuType"> -->
+        <!-- default part -->
+        <ul *ngIf="menuType === 'default'"  class="navbar-nav me-auto mb-2 mb-lg-0 ml-2" style="margin-left: 400px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/seller-auth">Seller</a>
+          </li>
+
+          <li class="nav-item">
+            <!-- <a class="nav-link disabled"> -->
+            <button mat-mini-fab color="primary" ngbTooltip="Cart"><mat-icon>shopping_cart</mat-icon></button>
+            <!-- </a> -->
+          </li>
+        </ul>
+
+        <!-- seller -->
+        <ul *ngIf="menuType === 'seller'" class="navbar-nav me-auto mb-2 mb-lg-0 ml-2" style="margin-left: 400px;">
+          <!-- <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/">Login</a>
+            </li> -->
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/seller-auth">Product List</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" routerLink="/seller-add-product">Add Product</a>
+            </li>
+            
+            <li class="nav-item">
+              <button  mat-mini-fab  color="primary" ngbTooltip="Cart" (click)="logout()"><mat-icon>logout</mat-icon></button>
+            </li>
+            
+          <li class="nav-item">
+            <button class="nav-link active" mat-mini-fab aria-current="page" ngbTooltip="{{sellername | titlecase}}" ><mat-icon>face</mat-icon></button>
+          </li>
+
+        </ul>
+      <!-- </div> -->
+
+    </div>
+
+  </div>
+</nav>
+

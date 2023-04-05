@@ -1,0 +1,16 @@
+<div class="row search-items d-flex" *ngFor="let item of searchResults">
+<div class="col-sm-3">
+        <a routerLink="details/{{item.id}}">
+            <img src="assets/{{item.image}}" alt="image">
+        </a>
+    </div>
+    <div class="col-sm-8 details d-flex justify-content-cennter">
+        <h5>{{item.ProductName}}</h5>
+        <p>{{item.Price}}</p>
+        <span>{{item.Category}}</span>
+        <p>{{item.Description}}</p>
+    </div>
+</div>
+<div *ngIf="notFound == 'default'">
+    <h1>Result Not Found...</h1>
+</div>

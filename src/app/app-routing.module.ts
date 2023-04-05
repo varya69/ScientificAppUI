@@ -1,9 +1,53 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
+import { HomeComponent } from './home/home.component';
+import { NavSearchComponent } from './nav-search/nav-search.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { SearchComponent } from './search/search.component';
+import { SellerAddProductComponent } from './seller/seller-add-product/seller-add-product.component';
+import { SellerHomeComponent } from './seller/seller-home/seller-home/seller-home.component';
+import { UpdateProductComponent } from './seller/update-product/update-product.component';
+import { SellingAuthComponent } from './selling-auth/selling-auth.component';
 
 const routes: Routes = [
-  // { path: '', component: HomeComponent },
-  // { path: 'about', component: AboutComponent },
+  { 
+    path: '', 
+    component: HomeComponent 
+  },
+  { 
+    path: 'seller-auth', 
+    component: SellingAuthComponent 
+  },
+  { 
+    path: 'seller-home',
+    component: SellerHomeComponent, 
+    canActivate: [AuthGuard]
+  },
+
+  { 
+    path: 'seller-add-product',
+    component: SellerAddProductComponent, 
+    canActivate: [AuthGuard]
+  },
+
+  { 
+    path: 'search/:query',
+    component: SearchComponent, 
+    canActivate: [AuthGuard]
+  },
+
+  { 
+    path: 'details/:productId',
+    component: ProductDetailsComponent, 
+    canActivate: [AuthGuard]
+  },
+
+  // { 
+  //   path: 'update-product/:id',
+  //   component: UpdateProductComponent, 
+  //   canActivate: [AuthGuard]
+  // },
   // { path: 'contact', component: ContactComponent },
 ];
 

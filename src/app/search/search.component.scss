@@ -1,0 +1,40 @@
+.row.search-items {
+    margin: 25px;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .row.search-items:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .col-sm-3 img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .col-sm-8 {
+    flex-direction: column;
+  }
+  
+  .col-sm-8 h5 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .col-sm-8 p {
+    margin: 5px 0 0;
+    font-size: 19px;
+  }
+  
+  .col-sm-8 span {
+    margin: 5px 0 0;
+    font-size: 18px;
+    color: #666;
+  }
+  
