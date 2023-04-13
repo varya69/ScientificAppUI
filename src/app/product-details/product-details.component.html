@@ -1,1 +1,22 @@
-<p>product-details works!</p>
+<div class="product-card d-flex justify-content-center" *ngIf="productData">
+    <div class="row">
+        <div class="card-content">
+            <img src="assets/{{productData.image}}" alt="{{productData.ProductName}}">
+            <h1>{{productData.ProductName}}</h1>
+            <h3>{{productData.Price}}</h3>
+            <h6>{{productData.Category}}</h6>
+            <p>{{productData.Description}}</p>
+            <div class="quantity-group">
+                <button mat-raised-button (click)="handleQuantity('min')" ><mat-icon>-</mat-icon></button>
+                <input type="text" value="{{productQuantity}}">
+                <button mat-raised-button (click)="handleQuantity('plus')"><mat-icon>+</mat-icon></button>
+            </div>
+        </div>
+        <div class="card-actions">
+            <button mat-button class="btn-add-cart">Add to Cart</button>
+            <button mat-button class="btn-buy-now">Buy Now</button>
+        </div>
+    </div>
+    </div>
+<!-- </mat-card> -->
+  

@@ -4,24 +4,53 @@
       <form #signupform="ngForm" class="common-form" (ngSubmit)="signUp(signupform.value)">
         <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
         <h1 class="h3 mb-5 mt-5 fw-normal">Please Sign Up/Register</h1>
+        <!-- Role selection -->
+        <select name="role" [(ngModel)]="role" required ngModel>
+          <option value="user">User</option>
+          <option value="seller">Seller</option>
+        </select>
 
-        <div class="form-floating mt-3">
-          <input type="name" class="form-control" id="floatingInput" placeholder="Name" name="SellerName" ngModel>
-          <label for="floatingInput">Name</label>
+        <div *ngIf="isUser">
+          <div class="form-floating mt-3">
+            <input type="name" class="form-control" id="floatingInput" placeholder="Name" name="UserName" ngModel>
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="UserEmail"
+              ngModel>
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input class="form-control" id="floatingInput" placeholder="Mobile No" name="mobileNo" ngModel>
+            <label for="floatingInput">Mobile no</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+              ngModel>
+            <label for="floatingPassword">Password</label>
+          </div>
+  
         </div>
-        <div class="form-floating mt-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="SellerEmail"
-            ngModel>
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating mt-3">
-          <input class="form-control" id="floatingInput" placeholder="Mobile No" name="mobileNo" ngModel>
-          <label for="floatingInput">Mobile no</label>
-        </div>
-        <div class="form-floating mt-3">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
-            ngModel>
-          <label for="floatingPassword">Password</label>
+        <div *ngIf="!isUser">
+          <div class="form-floating mt-3">
+            <input type="name" class="form-control" id="floatingInput" placeholder="Name" name="SellerName" ngModel>
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="SellerEmail"
+              ngModel>
+            <label for="floatingInput">Email address</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input class="form-control" id="floatingInput" placeholder="Mobile No" name="mobileNo" ngModel>
+            <label for="floatingInput">Mobile no</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+              ngModel>
+            <label for="floatingPassword">Password</label>
+          </div>
+  
         </div>
 
         <div class="checkbox mb-3 mt-3">
@@ -30,7 +59,8 @@
           </label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
-        <a class="auth-toggle-link d-flex justify-content-center" (click)="openLogin()">Already have an Account? Click here</a>
+        <a class="auth-toggle-link d-flex justify-content-center" (click)="openLogin()">Already have an Account? Click
+          here</a>
       </form>
     </main>
 
@@ -43,16 +73,42 @@
         <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
         <h1 class="h3 mb-5 mt-5 fw-normal">Please Sign In</h1>
         <p class="error-p d-flex justify-content-center">{{authError}}</p>
-        <div class="form-floating mt-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="SellerEmail"
+        <!-- Role selection -->
+        <select name="role" [(ngModel)]="role" required ngModel>
+          <option value="user">User</option>
+          <option value="seller">Seller</option>
+        </select>
+
+        <div *ngIf="role === 'user'">
+
+          <div class="form-floating mt-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="UserEmail"
             ngModel>
-          <label for="floatingInput">Email address</label>
+            <label for="floatingInput">Email address</label>
+          </div>
+          
+          <div class="form-floating mt-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+            ngModel>
+            <label for="floatingPassword">Password</label>
+          </div>
+          
         </div>
-        
-        <div class="form-floating mt-3">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+
+        <div *ngIf="role === 'seller'">
+
+          <div class="form-floating mt-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="SellerEmail"
             ngModel>
-          <label for="floatingPassword">Password</label>
+            <label for="floatingInput">Email address</label>
+          </div>
+          
+          <div class="form-floating mt-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+            ngModel>
+            <label for="floatingPassword">Password</label>
+          </div>
+          
         </div>
 
         <div class="checkbox mb-3 mt-3">
@@ -61,7 +117,8 @@
           </label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <a class="auth-toggle-link d-flex justify-content-center" (click)="openSignUp()">Don't have an Account? Click here</a>
+        <a class="auth-toggle-link d-flex justify-content-center" (click)="openSignUp()">Don't have an Account? Click
+          here</a>
       </form>
     </main>
 

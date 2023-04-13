@@ -11,6 +11,7 @@ import { SellerService } from 'src/app/services/seller.service';
   styleUrls: ['./seller-add-product.component.scss']
 })
 export class SellerAddProductComponent implements OnInit {
+  
   selectedFile: File | null = null;
   url = 'https://www.lifewire.com/thmb/TRGYpWa4KzxUt1Fkgr3FqjOd6VQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg'
   form: any = {};
@@ -19,8 +20,6 @@ export class SellerAddProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
 
   onFileSelected(event: any) {
     if(event.target.files){
@@ -54,7 +53,7 @@ export class SellerAddProductComponent implements OnInit {
     formData.append('Category', form.value.Category);
     formData.append('Price', form.value.Price);
     formData.append('image', this.selectedFile, this.selectedFile.name);
-    console.log(formData);
+    // console.log(formData);
     this.http.post(`http://localhost:8000/add-product/${sellerId}`, formData).subscribe((response: any) => {
       if (response['success']) {
         alert(response['message']);

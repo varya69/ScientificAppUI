@@ -21,6 +21,7 @@ import { ConfirmDialogComponent } from './seller/confirm-dialog/confirm-dialog.c
 import { UpdateProductComponent } from './seller/update-product/update-product.component';
 import { SearchComponent } from './search/search.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     FormsModule,
     MatTooltipModule,
     NgbModule ,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

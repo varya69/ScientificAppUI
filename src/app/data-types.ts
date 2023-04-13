@@ -2,12 +2,14 @@ export interface SignUp{
     name: string,
     email: string,
     mobileno: Float32Array,
-    password: string
+    password: string,
+    role : string
 }
 
 export interface logIn{
     email: string,
-    password: string
+    password: string,
+    role: string
 }
 
 export interface Product {

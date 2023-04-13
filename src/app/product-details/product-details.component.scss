@@ -1,0 +1,111 @@
+.product-card {
+    // width: 100%;
+    // height: 100%;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-content {
+    padding: 26px;
+  }
+  
+  .card-content img {
+    max-width: 100%;
+  }
+  
+  .card-actions {
+    display: block;
+    justify-content: flex-start;
+    padding: 16px;
+  }
+  
+  .btn-add-cart {
+    background-color: #00bcd4;
+    color: #fff;
+    margin-right: 8px;
+  }
+  
+  .btn-add-cart:hover {
+    background-color: #0097a7;
+  }
+  
+  .btn-buy-now {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .btn-buy-now:hover {
+    background-color: #388e3c;
+  }
+  
+//   .quantity-group {
+//     display: flex;
+//     align-items: center;
+//     margin-top: 16px;
+//   }
+  
+//   .quantity-group input {
+//     width: 40px;
+//     text-align: center;
+//     border: none;
+//     border-bottom: 1px solid #9e9e9e;
+//     margin: 0px 8px;
+//     font-size: 16px;
+//     font-weight: bold;
+//   }
+  
+//   .quantity-group button {
+//     border: none;
+//     background-color: transparent;
+//     font-size: 24px;
+//     color: #757575;
+//     cursor: pointer;
+//     outline: none;
+//   }
+  
+//   .quantity-group button:hover {
+//     color: #212121;
+//   }
+
+/* Increase font size and weight */
+.quantity-group input[type="text"] {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 50px;
+    // border: 1px solid #ccc;
+    // background-color: #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+  }
+  
+  /* Adjust height and width of buttons */
+  .quantity-group button {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: #ddd;
+    // border: 1px solid #ccc;
+  }
+  
+  /* Add hover effect to buttons */
+  .quantity-group button:hover {
+    background-color: #eee;
+  }
+  
+  /* Remove default styling of the increment and decrement buttons */
+  .quantity-group input[type="number"]::-webkit-inner-spin-button,
+  .quantity-group input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { logIn, SignUp } from '../data-types';
 import { SellerService } from '../services/seller.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-selling-auth',
@@ -10,7 +11,12 @@ import { SellerService } from '../services/seller.service';
 })
 export class SellingAuthComponent implements OnInit {
 
-  constructor(private sellerService : SellerService, private router: Router) { }
+  role: string = 'user';
+  isUser: boolean = true;
+  // isSeller: boolean = false;
+
+  constructor(private sellerService : SellerService, private router: Router, 
+    private userService : UserService) { }
   authError:String = ""
   showLogin = false
 
@@ -20,9 +26,15 @@ export class SellingAuthComponent implements OnInit {
 
   signUp(data: SignUp):void{
     console.log(data);
-    this.sellerService.signUp(data)
+    if (this.role === 'user') {
+      this.isUser = true
+      this.userService.signUp(data)
+    } else if (this.role === 'seller'){ 
+      this.isUser = false 
+      this.sellerService.signUp(data)
+    }
   }
-
+  
   openLogin(){
     this.showLogin = true
   }
@@ -30,17 +42,34 @@ export class SellingAuthComponent implements OnInit {
   openSignUp(){
     this.showLogin = false
   }
-
+  
+  
   sellerLogin(data: logIn){
     console.log(data);
-    this.sellerService.sellerLogin(data)
-    this.sellerService.isLogginError.subscribe((isError: any) => {
-      if(isError){
-        this.authError = "Inavild Credentials Error"
-      }
-    } )
-    setTimeout(() => {
-      this.authError = '';
-    }, 5000);
+    if (this.role === 'user') {
+      // Handle user login/signup
+      this.isUser = true
+      this.userService.userLogin(data)
+      this.userService.isLogginError.subscribe((isError: any) => {
+        if(isError){
+          this.authError = "Inavild Credentials Error"
+        }
+      } )
+      setTimeout(() => {
+        this.authError = '';
+      }, 5000);
+    } else if (this.role === 'seller') {
+      // Handle seller login/signup
+      this.isUser = false 
+      this.sellerService.sellerLogin(data)
+      this.sellerService.isLogginError.subscribe((isError: any) => {
+        if(isError){
+          this.authError = "Inavild Credentials Error"
+        }
+      } )
+      setTimeout(() => {
+        this.authError = '';
+      }, 5000);
+    }
   }
 }

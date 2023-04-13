@@ -21,11 +21,6 @@
                     <label for="floatingInput">Category</label>
                 </div>
 
-                <!-- <div class="form-floating mt-3">
-                    <input class="form-control" id="floatingInput" placeholder="Image" name="img" ngModel>
-                    <label for="floatingInput">Img URL</label>
-                </div> -->
-
                 <div class="form-floating mt-3">
                     <form >
                         <img src="{{url}}" height="100"><br>
@@ -39,12 +34,7 @@
                     <input class="form-control" id="floatingInput" placeholder="Enter the Price" name="Price" ngModel>
                     <label for="floatingInput">Price</label>
                 </div>
-                <!-- <div class="form-floating mt-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
-              ngModel>
-            <label for="floatingPassword">Password</label>
-          </div> -->
-
+                
                 <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!selectedFile">Add Product</button>
             </form>
         </main>

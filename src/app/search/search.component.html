@@ -1,10 +1,8 @@
 <div class="row search-items d-flex" *ngFor="let item of searchResults">
-<div class="col-sm-3">
-        <a routerLink="details/{{item.id}}">
-            <img src="assets/{{item.image}}" alt="image">
-        </a>
+    <div class="col-sm-3" routerLink="/details/{{item.id}}">
+        <img src="assets/{{item.image}}" alt="image">
     </div>
-    <div class="col-sm-8 details d-flex justify-content-cennter">
+    <div class="col-sm-8 details d-flex justify-content-cennter" routerLink="/details/{{item.id}}">
         <h5>{{item.ProductName}}</h5>
         <p>{{item.Price}}</p>
         <span>{{item.Category}}</span>

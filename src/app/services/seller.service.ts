@@ -27,7 +27,7 @@ export class SellerService {
   }
 
   sellerLogin(data: logIn){
-    return this.http.post(`${this.apiUrl}login/`, data , { observe: 'response' }).subscribe((res:any) => {
+    return this.http.post(`${this.apiUrl}seller-login/`, data , { observe: 'response' }).subscribe((res:any) => {
       // localStorage.setItem('token', res.token);
       console.log( res.body);
       if (res.status === 200 && res.body.message === 'Login successful'){
@@ -74,6 +74,24 @@ export class SellerService {
     return this.http.put<Product>(`${this.apiUrl}update_product/${product.id}`, product)
   }
 
+  // updateProduct(product: Product): Observable<Product> {
+  //   const url = `${this.apiUrl}/${product.id}`; // Replace with your API endpoint for updating a product
+    
+  //   // Create a FormData object to send the updated product data, including the image file
+  //   const formData = new FormData();
+  //   formData.append('name', product.ProductName);
+  //   formData.append('price', product.Price.toString());
+  //   formData.append('description', product.Description);
+  //   formData.append('image', product.image);
+
+  //   return this.http.put<Product>(url, formData);
+  // }
+
+  // updateProduct(id: number, formData: FormData): Observable<any> {
+
+  //   return this.http.put(`${this.apiUrl}update_product/${id}`, formData);
+  // }
+  
   allProducts(){
     return this.http.get<Product[]>(`${this.apiUrl}all-products/`)
   }

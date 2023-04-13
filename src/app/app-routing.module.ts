@@ -34,13 +34,11 @@ const routes: Routes = [
   { 
     path: 'search/:query',
     component: SearchComponent, 
-    canActivate: [AuthGuard]
   },
 
   { 
     path: 'details/:productId',
     component: ProductDetailsComponent, 
-    canActivate: [AuthGuard]
   },
 
   // { 

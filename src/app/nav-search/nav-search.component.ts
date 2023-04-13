@@ -10,6 +10,7 @@ import { Product } from '../data-types';
 })
 export class NavSearchComponent implements OnInit {
   sellername: string= ''
+  username: string= ''
   menuType : String = 'default';
   // searchTerm: string = '';
   searchResults?: Product[];
@@ -18,11 +19,13 @@ export class NavSearchComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    //this is for updating the header after user signup send it to the home page if user tring to go login signup page
     this.router.events.subscribe((res: any) => {
+      console.log(res.url)
       if(res.url){
         // console.log("response router :", res.url);
         if (localStorage.getItem('seller') && res.url.includes('seller')){ // if the user routes to the seller account then 
-          // console.log("In seller");
+          console.log("In seller");
           this.menuType = 'seller';
 
           if(localStorage.getItem('seller')){ //for fetching the name of the seller account
@@ -30,6 +33,17 @@ export class NavSearchComponent implements OnInit {
             let sellerData = sellerStore && JSON.parse(sellerStore)
             // console.log(sellerData.SellerName);
             this.sellername = sellerData.SellerName     //check if the seller store is not empty and if it has some data then fetch the data
+"          }"
+          }
+        } else if (localStorage.getItem('user') && res.url.includes('/')){ // if the user routes to the seller account then 
+          console.log("In user");
+          this.menuType = 'user';
+
+          if(localStorage.getItem('user')){ //for fetching the name of the user account
+            let userStore = localStorage.getItem('user');
+            let userData = userStore && JSON.parse(userStore)
+            // console.log(sellerData.SellerName);
+            this.username = userData.UserName     //check if the user store is not empty and if it has some data then fetch the data
 "          }"
           }
         } else{
@@ -42,7 +56,9 @@ export class NavSearchComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('seller')
+    localStorage.removeItem('user')
     this.router.navigate(['/']);
+    location.reload();
   }
 
   search(query: KeyboardEvent) {
@@ -73,4 +89,8 @@ export class NavSearchComponent implements OnInit {
     // this.router.navigate([`search/${value}`], { queryParams: { q: value } });
   }
 
+  redirectToDetails(id: number){
+    this.router.navigate([`/details/${id}`]); 
+    // location.reload();
+    }
 }
