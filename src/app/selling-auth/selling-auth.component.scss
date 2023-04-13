@@ -89,3 +89,17 @@
     text-decoration: underline;
   }
   
+
+  .validation-errors {
+    color: red; /* sets the text color to red */
+    font-size: 12px; /* sets the font size to 14 pixels */
+  }
+  
+  .validation-errors span {
+    display: block; /* sets the span element to a block-level element to occupy full width */
+    margin-top: -10px; /* adds a 5 pixel margin on top of the span element */
+  }
+
+  // .disabled{
+  //   cursor: not-allowed;
+  // }

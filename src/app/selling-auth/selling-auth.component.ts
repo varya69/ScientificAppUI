@@ -44,7 +44,7 @@ export class SellingAuthComponent implements OnInit {
   }
   
   
-  sellerLogin(data: logIn){
+  Login(data: logIn){
     console.log(data);
     if (this.role === 'user') {
       // Handle user login/signup

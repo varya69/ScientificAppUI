@@ -10,47 +10,96 @@
           <option value="seller">Seller</option>
         </select>
 
+        <!-- Assuming isUser is defined in component's TypeScript code -->
         <div *ngIf="isUser">
           <div class="form-floating mt-3">
-            <input type="name" class="form-control" id="floatingInput" placeholder="Name" name="UserName" ngModel>
-            <label for="floatingInput">Name</label>
+            <input type="text" class="form-control" id="floatingInputName" placeholder="Name" name="UserName" required
+              pattern="^[a-zA-Z\s]*$" ngModel #userNameInput="ngModel">
+            <label for="floatingInputName">Name</label>
+            <div class="validation-errors" *ngIf="userNameInput.invalid && (userNameInput.dirty || userNameInput.touched)">
+              <small *ngIf="userNameInput.errors?.required">Name is required.</small>
+              <small *ngIf="userNameInput.errors?.pattern">Name is invalid.</small>
+            </div>
           </div>
+
           <div class="form-floating mt-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="UserEmail"
-              ngModel>
-            <label for="floatingInput">Email address</label>
+            <input type="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com"
+              name="UserEmail" required email ngModel #userEmailInput="ngModel">
+            <label for="floatingInputEmail">Email address</label>
+            <div class="validation-errors" *ngIf="userEmailInput.invalid && (userEmailInput.dirty || userEmailInput.touched)">
+              <small *ngIf="userEmailInput.errors?.required">Email is required.</small>
+              <small *ngIf="userEmailInput.errors?.email">Email is invalid.</small>
+            </div>
           </div>
+
           <div class="form-floating mt-3">
-            <input class="form-control" id="floatingInput" placeholder="Mobile No" name="mobileNo" ngModel>
-            <label for="floatingInput">Mobile no</label>
+            <input type="tel" class="form-control" id="floatingInputMobile" placeholder="Mobile No" name="mobileNo"
+              required pattern="^[0-9]*$" ngModel #mobileNoInput="ngModel">
+            <label for="floatingInputMobile">Mobile no</label>
+            <div class="validation-errors" *ngIf="mobileNoInput.invalid && (mobileNoInput.dirty || mobileNoInput.touched)">
+              <small *ngIf="mobileNoInput.errors?.required">Mobile no is required.</small>
+              <small *ngIf="mobileNoInput.errors?.pattern">Mobile number must contain only numeric digits.</small>
+            </div>
           </div>
+
           <div class="form-floating mt-3">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
-              ngModel>
+              required pattern="^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{8,}$" minlength="8" ngModel
+              #passwordInput="ngModel">
             <label for="floatingPassword">Password</label>
+            <div class="validation-errors" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+              <small *ngIf="passwordInput.errors?.required">Password is required.</small>
+              <small *ngIf="passwordInput.errors?.pattern">Password must contain at least one special character, one number, and one uppercase letter.</small>
+              <small *ngIf="passwordInput.errors?.minlength">Password must be at least 8 characters long.</small>
+            </div>
           </div>
-  
+
         </div>
+
+
+
         <div *ngIf="!isUser">
           <div class="form-floating mt-3">
-            <input type="name" class="form-control" id="floatingInput" placeholder="Name" name="SellerName" ngModel>
-            <label for="floatingInput">Name</label>
+            <input type="name" class="form-control" id="floatingInput" placeholder="Name" name="SellerName" required
+            pattern="^[a-zA-Z\s]*$" ngModel #sellerNameInput="ngModel">
+          <label for="floatingInputName">Name</label>
+          <div class="validation-errors" *ngIf="sellerNameInput.invalid && (sellerNameInput.dirty || sellerNameInput.touched)">
+            <small *ngIf="sellerNameInput.errors?.required">Name is required.</small>
+            <small *ngIf="sellerNameInput.errors?.pattern">Name is invalid.</small>
           </div>
+        </div>
+
           <div class="form-floating mt-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="SellerEmail"
-              ngModel>
-            <label for="floatingInput">Email address</label>
-          </div>
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+              name="SellerEmail" required email ngModel #sellerEmailInput="ngModel">
+              <label for="floatingInputEmail">Email address</label>
+              <div class="validation-errors" *ngIf="sellerEmailInput.invalid && (sellerEmailInput.dirty || sellerEmailInput.touched)">
+                <small *ngIf="sellerEmailInput.errors?.required">Email is required.</small>
+                <small *ngIf="sellerEmailInput.errors?.email">Email is invalid.</small>
+              </div>
+            </div>
+
           <div class="form-floating mt-3">
-            <input class="form-control" id="floatingInput" placeholder="Mobile No" name="mobileNo" ngModel>
-            <label for="floatingInput">Mobile no</label>
+            <input class="form-control" id="floatingInput" placeholder="Mobile No" name="mobileNo" ngModel #mobileNoInput="ngModel">
+            <label for="floatingInputMobile">Mobile no</label>
+            <div class="validation-errors" *ngIf="mobileNoInput.invalid && (mobileNoInput.dirty || mobileNoInput.touched)">
+              <small *ngIf="mobileNoInput.errors?.required">Mobile no is required.</small>
+              <small *ngIf="mobileNoInput.errors?.pattern">Mobile number must contain only numeric digits.</small>
+            </div>
           </div>
+
           <div class="form-floating mt-3">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
-              ngModel>
-            <label for="floatingPassword">Password</label>
+            required pattern="^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{8,}$" minlength="8" ngModel
+            #passwordInput="ngModel">
+          <label for="floatingPassword">Password</label>
+          <div class="validation-errors" *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+            <small *ngIf="passwordInput.errors?.required">Password is required.</small>
+            <small *ngIf="passwordInput.errors?.pattern">Password must contain at least one special character, one number, and one uppercase letter.</small>
+            <small *ngIf="passwordInput.errors?.minlength">Password must be at least 8 characters long.</small>
           </div>
-  
+        </div>
+
         </div>
 
         <div class="checkbox mb-3 mt-3">
@@ -58,7 +107,12 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+
+        <p class="validation-errors" *ngIf="signupform.invalid">
+          Please fill in all required fields
+        </p>
+
+        <button [disabled]="signupform.invalid" class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
         <a class="auth-toggle-link d-flex justify-content-center" (click)="openLogin()">Already have an Account? Click
           here</a>
       </form>
@@ -69,7 +123,7 @@
   <!-- Logged in Area -->
   <div *ngIf="showLogin" class="signUp">
     <main class="form-signin w-100 m-auto">
-      <form #signupform="ngForm" class="common-form" (ngSubmit)="sellerLogin(signupform.value)">
+      <form #signupform="ngForm" class="common-form" (ngSubmit)="Login(signupform.value)">
         <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
         <h1 class="h3 mb-5 mt-5 fw-normal">Please Sign In</h1>
         <p class="error-p d-flex justify-content-center">{{authError}}</p>
@@ -83,14 +137,24 @@
 
           <div class="form-floating mt-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="UserEmail"
-            ngModel>
+              required #userEmailInput='ngModel' email ngModel>
             <label for="floatingInput">Email address</label>
+            <div class="validation-errors" *ngIf="userEmailInput.invalid && (userEmailInput.dirty || userEmailInput.touched)">
+              <small *ngIf="userEmailInput.errors?.required">Email is required.</small>
+              <small *ngIf="userEmailInput.errors?.email">Email is invalid. Please Enter a valid Email</small>
+              <!-- <small></small> -->
+            </div>
           </div>
-          
+
           <div class="form-floating mt-3">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
-            ngModel>
+              required #password='ngModel' ngModel>
             <label for="floatingPassword">Password</label>
+            <div class="validation-errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+              <small *ngIf="password.errors?.required">Password is required.</small>
+              <small *ngIf="password.errors?.email">Password is invalid. Please Enter a valid Password</small>
+              <!-- <small></small> -->
+            </div>
           </div>
           
         </div>
@@ -98,17 +162,27 @@
         <div *ngIf="role === 'seller'">
 
           <div class="form-floating mt-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="SellerEmail"
-            ngModel>
-            <label for="floatingInput">Email address</label>
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+              name="SellerEmail" required #sellerEmailInput='ngModel' email ngModel>
+              <label for="floatingInput">Email address</label>
+              <div class="validation-errors" *ngIf="sellerEmailInput.invalid && (sellerEmailInput.dirty || sellerEmailInput.touched)">
+                <small *ngIf="sellerEmailInput.errors?.required">Email is required.</small>
+                <small *ngIf="sellerEmailInput.errors?.email">Email is invalid. Please Enter a valid Email</small>
+                <!-- <small></small> -->
+              </div>
           </div>
-          
+
           <div class="form-floating mt-3">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
-            ngModel>
+              required #password='ngModel' ngModel>
             <label for="floatingPassword">Password</label>
+            <div class="validation-errors" *ngIf="password.invalid && (password.dirty || password.touched)">
+              <small *ngIf="password.errors?.required">Password is required.</small>
+              <small *ngIf="password.errors?.email">Password is invalid. Please Enter a valid Password</small>
+              <!-- <small></small> -->
+            </div>
           </div>
-          
+
         </div>
 
         <div class="checkbox mb-3 mt-3">
@@ -116,7 +190,11 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+
+        <p class="validation-errors" *ngIf="signupform.invalid">
+          Please fill in all required fields
+        </p>
+        <button [disabled]="signupform.invalid" class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         <a class="auth-toggle-link d-flex justify-content-center" (click)="openSignUp()">Don't have an Account? Click
           here</a>
       </form>
