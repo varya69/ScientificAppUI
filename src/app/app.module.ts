@@ -22,6 +22,7 @@ import { UpdateProductComponent } from './seller/update-product/update-product.c
 import { SearchComponent } from './search/search.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { MatCardModule } from '@angular/material/card';
+import { CartDetailsPageComponent } from './cart-details-page/cart-details-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { MatCardModule } from '@angular/material/card';
     ConfirmDialogComponent,
     UpdateProductComponent,
     SearchComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartDetailsPageComponent
   ],
   imports: [
     BrowserModule,

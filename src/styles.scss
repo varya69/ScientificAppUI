@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -8,5 +10,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .error-p{
     color: red;
 }
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+
+.bluetext {
+    color: #007bff; /* changes the text color to a blue shade */
+    // margin-bottom: 5px;
+    // margin-top: 5px;
+    font-weight:bolder;
+    text-align: center;
+    font-size: 32px !important; /* You can adjust the font size to your preference */
+  }
+
+.validation-errors {
+    color: red; /* sets the text color to red */
+    font-size: 12px; /* sets the font size to 14 pixels */
+}
+
+.validation-errors span {
+    display: block; /* sets the span element to a block-level element to occupy full width */
+    margin-top: -10px; /* adds a 5 pixel margin on top of the span element */
+}
+

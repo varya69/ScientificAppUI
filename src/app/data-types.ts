@@ -19,4 +19,18 @@ export interface Product {
     Category: string;
     Price: number;
     image?: File;
+    quantity?: number;
+    userId?: number;
+    productId?: number;
+  }
+export interface Cart {
+    id?: number;
+    ProductName: string;
+    Description: string;
+    Category: string;
+    Price: number;
+    image?: File;
+    quantity?: number;
+    userId: number;
+    productId: number;
   }

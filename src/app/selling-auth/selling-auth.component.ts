@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { logIn, SignUp } from '../data-types';
+import { Cart, logIn, Product, SignUp } from '../data-types';
 import { SellerService } from '../services/seller.service';
 import { UserService } from '../services/user.service';
 
@@ -72,4 +72,33 @@ export class SellingAuthComponent implements OnInit {
       }, 5000);
     }
   }
+
+  // localCartToRemoteCart(){
+  //   let data= localStorage.getItem('localCartData');
+  //   if(data) {
+  //     let cartDataList: Product[] = JSON.parse(data);
+  //     let user = localStorage.getItem('user');
+  //     let userId = user && JSON.parse(user).id
+
+  //     cartDataList.forEach((product: Product, index) => {
+  //       let cartData: Cart= {
+  //         ...product,
+  //         productId: product.id,
+  //         userId
+  //       };
+
+  //       delete cartData.id;
+  //       console.log(cartData);
+  //       this.userService.addToCart(cartData).subscribe((result) => {
+  //         if(result){
+  //           console.log("item stored in the database successfully");
+  //         }
+  //       })
+  //       if(cartDataList.length === index+1){
+  //         console.log("in here if ")
+  //         localStorage.removeItem('localCartData');
+  //       }
+  //     })
+  //   }
+  // }
 }
