@@ -9,6 +9,7 @@ import { SellerAddProductComponent } from './seller/seller-add-product/seller-ad
 import { SellerHomeComponent } from './seller/seller-home/seller-home/seller-home.component';
 import { UpdateProductComponent } from './seller/update-product/update-product.component';
 import { SellingAuthComponent } from './selling-auth/selling-auth.component';
+import { CartDetailsPageComponent } from './cart-details-page/cart-details-page.component';
 
 const routes: Routes = [
   { 
@@ -39,6 +40,11 @@ const routes: Routes = [
   { 
     path: 'details/:productId',
     component: ProductDetailsComponent, 
+  },
+
+  { 
+    path: 'cart_page_details',
+    component: CartDetailsPageComponent, 
   },
 
   // { 

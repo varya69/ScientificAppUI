@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cart, Product } from '../data-types';
 import { SellerService } from '../services/seller.service';
 import { UserService } from '../services/user.service';
@@ -16,7 +16,8 @@ export class ProductDetailsComponent implements OnInit {
   addToCart: boolean = false;
   removeCart: boolean = false;
   removeCartData?: Product
-  constructor(private activateRoute: ActivatedRoute, private sellerService: SellerService, private userService : UserService) { }
+  constructor(private activateRoute: ActivatedRoute, private sellerService: SellerService, 
+      private userService : UserService, private router: Router) { }
 
   ngOnInit(): void {
     let productId = this.activateRoute.snapshot.paramMap.get('productId');
@@ -61,6 +62,11 @@ export class ProductDetailsComponent implements OnInit {
 
   goToCart() {
     this.addToCart = false
+    if(localStorage.getItem('user')){
+      this.router.navigate(['/cart_page_details/'])
+    } else {
+      this.router.navigate(['/seller-auth/']);  
+    }
   }
   
   removeToCart(productId: number) {

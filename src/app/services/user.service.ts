@@ -91,7 +91,7 @@ export class UserService {
           productId: product.id,
           userId
         };
-
+        
         delete cartData.id;
         // console.log(cartData);
         this.http.post(`${this.apiUrl}cart/`, cartData).subscribe((result) => {
@@ -104,7 +104,7 @@ export class UserService {
         }
       })
     }
-
+    
     this.getCartList(userId)
   }
 
@@ -116,8 +116,15 @@ export class UserService {
       
     })
   }
-
+  
   removeFromCart(cartId: number) {
     return this.http.delete(`${this.apiUrl}delete-cart/${cartId}`)
   }
+
+  currentCart(){
+    let userStore = localStorage.getItem('user');
+    let userData = userStore && JSON.parse(userStore);
+    return this.http.get<Cart[]>(`${this.apiUrl}get_cart/${userData.UserId}`)
+  }
+
 }
